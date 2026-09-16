@@ -1,0 +1,317 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-dark: #1e1e24;
+    --bg-card: #2d2d38;
+    --text-light: #f4f4f9;
+    --primary-red: #be1624;
+    --led-yellow: #ffb703;
+    --led-green: #38b000;
+    --led-purple: #9d4edd;
+    --font-heading: "Poppins", sans-serif;
+    --font-body: "Inter", sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: #121214;
+    color: var(--text-light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    width: 100%;
+    background-color: var(--bg-dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 3rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.logo h1 {
+    font-family: var(--font-heading);
+    color: var(--text-light);
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 500;
+}
+
+.ld {
+    text-decoration: none;
+    color: var(--text-light);
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+.ld:hover {
+    transform: translateY(-2px);
+}
+
+.led-1:hover { color: var(--led-yellow); }
+.led-2:hover { color: var(--led-green); }
+.led-3:hover { color: var(--led-purple); }
+
+.content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 4vh 2rem 2rem; 
+}
+
+.grafico {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem; 
+}
+
+.dashboard {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.8rem;
+}
+
+.dashboard h2 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.6rem;
+    letter-spacing: 0.5px;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 1.2rem;
+    width: 100%;
+}
+
+.card {
+    background-color: var(--bg-card);
+    border-radius: 8px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary-red);
+}
+
+.btn- {
+    background-color: var(--primary-red);
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.8rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    font-family: var(--font-heading);
+    letter-spacing: 0.5px;
+}
+
+.btn-:hover {
+    background-color: #910c0c;
+    transform: scale(1.03);
+}
+
+.footer {
+    background-color: var(--bg-dark);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.88rem;
+    color: #a0a0a0;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.7); 
+  background: #2b2b36;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  z-index: 1000;
+  width: 400px;
+  max-width: 90%;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out; 
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px); 
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.popup.ativo {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1); 
+}
+
+.overlay.ativo {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.fechar-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #be1010;
+}
+
+.card-grafico {
+    width: 100%;
+    background-color: var(--bg-card);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease-in-out;
+}   
+
+.area-grafico {
+    margin-top: 1.2rem;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-dark);
+    border-radius: 6px;
+    padding: 15px;
+}
+
+.escondido {
+    display: none;
+}
+
+.top-gra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.top-gra h3 {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.butao-gra {
+    display: flex;
+    gap: 8px;
+}
+
+.butao-gra button {
+    background-color: #3b3b48;
+    color: #c0c0d0;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    font-family: var(--font-heading);
+}
+
+.butao-gra button:hover {
+    background-color: #4a4a5a;
+    color: #fff;
+}
+
+.butao-gra button.ativo {
+    background-color: var(--primary-red);
+    color: #fff;
+    box-shadow: 0 0 12px rgba(190, 22, 36, 0.4);
+}
+
+/* Gráfico SVG */
+#svgGrafico {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.grid-line {
+    stroke: rgba(255, 255, 255, 0.04);
+    stroke-width: 1;
+}
+
+.chart-area {
+    fill: url(#gradienteGrafico);
+    transition: d 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chart-path {
+    fill: none;
+    stroke: var(--primary-red);
+    stroke-width: 3.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0px 4px 6px rgba(190, 22, 36, 0.4));
+    transition: d 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ponto-grafico {
+    fill: var(--bg-dark);
+    stroke: var(--primary-red);
+    stroke-width: 3;
+    r: 4.5;
+    transition: cx 0.5s cubic-bezier(0.4, 0, 0.2, 1), cy 0.5s cubic-bezier(0.4, 0, 0.2, 1), r 0.2s ease;
+    cursor: pointer;
+}
+
+.ponto-grafico:hover {
+    r: 7;
+    fill: var(--primary-red);
+}

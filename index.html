@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENAI - IOT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <h1>SENAI</h1>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#" class="ld led-1">LED 1</a></li>
+                <li><a href="#" class="ld led-2">LED 2</a></li>
+                <li><a href="#" class="ld led-3">LED 3</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content">
+        <section class="dashboard">
+            <h2>Painel de Controle IoT</h2>
+
+            <div class="cards-grid">
+                <div class="card" data-sensor="Dispositivo"><h3>Dispositivo</h3></div>
+                <div class="card" data-sensor="Data">Data</div>
+                <div class="card" data-sensor="Altitude">Altitude</div>
+                <div class="card" data-sensor="Pressão">Pressão</div>
+                <div class="card" data-sensor="Umidade">Umidade</div>
+                <div class="card" data-sensor="Temperatura">Temperatura</div>
+            </div>
+
+            <section class="grafico">
+                <button type="button" id="btnGrafico" class="btn-">Ver Gráfico</button>
+            </section>
+
+            <div id="cardGrafico" class="card-grafico escondido">
+                <div class="top-gra">
+                    <h3>Visualização do Gráfico</h3>
+                    <div class="butao-gra">
+                        <button data-tipo="Pressão" class="ativo">Pressão</button>
+                        <button data-tipo="Umidade">Umidade</button>
+                        <button data-tipo="Temp">Temp</button>
+                        <button data-tipo="Altitude">Altitude</button>
+                    </div>
+                </div>
+                <div class="area-grafico">
+                    <svg id="svgGrafico" viewBox="0 0 500 200" preserveAspectRatio="none">
+                        <defs>
+                            <linearGradient id="gradienteGrafico" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="var(--primary-red)" stop-opacity="0.35"/>
+                                <stop offset="100%" stop-color="var(--primary-red)" stop-opacity="0.0"/>
+                            </linearGradient>
+                        </defs>
+
+                        <line x1="0" y1="40" x2="500" y2="40" class="grid-line" />
+                        <line x1="0" y1="80" x2="500" y2="80" class="grid-line" />
+                        <line x1="0" y1="120" x2="500" y2="120" class="grid-line" />
+                        <line x1="0" y1="160" x2="500" y2="160" class="grid-line" />
+
+                        <path id="pathArea" class="chart-area" d="" />
+                        <path id="pathGrafico" class="chart-path" d="" />
+                        <g id="pontosGrafico"></g>
+                    </svg>
+                </div>
+            </div>
+
+            <div id="overlay" class="overlay"></div>
+            <div id="popup" class="popup">
+                <button id="btnFechar" class="fechar-btn">&times;</button>
+                <div class="popup-conteudo">
+                    <h2 id="popupTitulo">Nome do Sensor</h2>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Centro de Conectividade &copy; 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
